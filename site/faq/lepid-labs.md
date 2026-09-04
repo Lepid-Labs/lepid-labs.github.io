@@ -2,7 +2,7 @@
 
 ## What is Lepid Labs?
 
-A small software studio building developer tools for teams that keep their knowledge in the repository. The public product is [Weft](weft.md#what-is-weft); a set of smaller libraries for code intelligence, knowledge storage, and agent orchestration sits behind it and surfaces as products when ready.
+A small software lab. We build small, composable tools across developer tooling, knowledge and agents, platform services, and creative work, and release them when they are ready for someone other than us. The first public release is [Weft](weft.md#what-is-weft); the rest is listed by area on the [home page](/#pipeline) until it has a name.
 
 ## What does the name mean?
 

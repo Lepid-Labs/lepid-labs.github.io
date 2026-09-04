@@ -13,6 +13,12 @@ Working context for changing the Lepid Labs site. What the code cannot tell you.
 - **Social preview image is rendered, not drawn.** `site/assets/og.png` comes from `scripts/og-card.html`, which uses the theme tokens so it matches the site. `just og-image` re-renders it with headless Chrome; commit the PNG since the build does not regenerate it. Every page's `og:*` tags point at it.
 - **Deploy is GitHub Actions.** The `pages` workflow builds on push to main. Nothing is served from a branch, so a merge is the publish step.
 
+## Framing
+
+- **Lepid Labs is a software lab, not a Weft company.** Weft is the first release of a wide portfolio (developer tooling, knowledge and agents, platform services, creative tools). The home page leads with the lab's line and method, then Weft, then the pipeline by area. Do not rewrite it as a product landing page, and do not embed Weft on the home page; the FAQ and Docs pages already demonstrate it.
+- **The pipeline is listed by area, never by repository.** Projects get a name on the site when they are usable by someone other than the lab. Hobby-grade work in the GitHub organisation (bots, a torrent client) is deliberately left off.
+- **The three principles live on the home page only.** About is short on purpose: why the lab exists, one plain sentence about AI-assisted development, contact.
+
 ## Rules and thresholds
 
 - Public repository: no hostnames, IPs, emails, or personal details anywhere, including the FAQ corpus.
@@ -22,6 +28,5 @@ Working context for changing the Lepid Labs site. What the code cannot tell you.
 
 ## Open questions
 
-- Company copy on the home and about pages is a first draft and needs an owner's edit.
 - Whether the Documentation page should keep showing Weft's internal spec documents (plan, research, design decisions) or only the user guides.
 - A contact channel other than the GitHub organisation.

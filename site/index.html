@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lepid Labs</title>
-<meta name="description" content="Lepid Labs builds small, composable developer tools. Documentation, code intelligence, and agents that stay close to the code.">
+<meta name="description" content="Lepid Labs is a software lab building small, composable tools. Weft, a documentation graph browser, is the first release.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lepid Labs">
 <meta property="og:title" content="Lepid Labs">
-<meta property="og:description" content="Lepid Labs builds small, composable developer tools. Documentation, code intelligence, and agents that stay close to the code.">
+<meta property="og:description" content="Lepid Labs is a software lab building small, composable tools. Weft, a documentation graph browser, is the first release.">
 <meta property="og:url" content="https://lepid-labs.github.io/">
 <meta property="og:image" content="https://lepid-labs.github.io/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Lepid Labs: tools for teams whose knowledge lives in the repository.">
+<meta property="og:image:alt" content="Lepid Labs: building the tools that let your ideas take flight.">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,17 +40,38 @@
 
 <main>
   <section class="hero wrap">
-    <p class="eyebrow">Developer tooling</p>
-    <h1>Tools for teams whose <em>knowledge</em> lives in the repository.</h1>
-    <p>Lepid Labs builds small, composable developer tools. Documentation, code intelligence, and agents that stay close to the code they describe, embed where you already work, and never ask to own your data.</p>
+    <p class="eyebrow">Software lab</p>
+    <h1>Building the tools that let your ideas <em>take flight</em>.</h1>
+    <p>Lepid Labs is a software lab. We build small, composable tools, and release them when they are ready for someone other than us.</p>
     <div class="actions">
-      <a class="nb-btn nb-btn--primary" href="/docs/">Explore Weft</a>
-      <a class="nb-btn nb-btn--accent" href="/faq/">Read the FAQ</a>
+      <a class="nb-btn nb-btn--primary" href="#weft">Weft, the first release</a>
+      <a class="nb-btn" href="/about/">About the lab</a>
     </div>
   </section>
 
-  <section class="section wrap">
-    <p class="eyebrow">Product</p>
+  <section class="section wrap" id="method">
+    <p class="eyebrow">How we build</p>
+    <div class="grid">
+      <div class="nb-card">
+        <span class="card-index">01</span>
+        <h3>Nothing important lives only in a hosted service</h3>
+        <p>Content, configuration, and indexes are files you can version. A tool of ours can disappear and leave your work intact.</p>
+      </div>
+      <div class="nb-card">
+        <span class="card-index">02</span>
+        <h3>The host stays in charge</h3>
+        <p>Our tools mount into the page, repository, or workflow you already have. It keeps its URL, its history, its search, and its data. We supply the part it does not have.</p>
+      </div>
+      <div class="nb-card">
+        <span class="card-index">03</span>
+        <h3>One thing each</h3>
+        <p>Every library does one job and can be reasoned about on its own. Products compose them; nothing depends on the composition.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="weft">
+    <p class="eyebrow">Released</p>
     <div class="product">
       <div class="nb-card">
         <div class="product__head">
@@ -59,38 +80,42 @@
           <span class="nb-badge">MIT</span>
         </div>
         <p class="lead">A documentation graph browser that lives in the repository alongside the code. Design docs, specs, API definitions, and diagrams become nodes with typed, anchor-level relationships between them. Any document is an entry point; navigation is the product.</p>
-        <p class="lead">It runs as a CLI over a local checkout, or embeds into any page as a single script pointed at a repository or a base URL. This site's FAQ and Docs pages are Weft embedded.</p>
+        <p class="lead">It runs as a CLI over a local checkout, or embeds into any page as a single script. This site's FAQ and Docs pages are Weft embedded.</p>
         <pre class="nb-pre">&lt;script src="weft.iife.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   Weft.mountWeft('#docs', { repo: 'acme/project' });
 &lt;/script&gt;</pre>
+        <div class="actions">
+          <a class="nb-btn nb-btn--primary" href="/docs/">Read the documentation</a>
+        </div>
       </div>
       <div class="product__links">
-        <a class="nb-link" href="/docs/">Documentation <small>usage, configuration, theming</small></a>
-        <a class="nb-link" href="/faq/">FAQ <small>what it is, how to get it</small></a>
-        <a class="nb-link" href="https://lepid-labs.github.io/weft/" rel="noopener">Project site <small>Weft browsing its own docs</small></a>
         <a class="nb-link" href="https://github.com/Lepid-Labs/weft" rel="noopener">Source <small>github.com/Lepid-Labs/weft</small></a>
+        <a class="nb-link" href="https://lepid-labs.github.io/weft/" rel="noopener">Project site <small>Weft browsing its own docs</small></a>
+        <a class="nb-link" href="/faq/">FAQ <small>what it is, how to get it</small></a>
       </div>
     </div>
   </section>
 
-  <section class="section wrap">
-    <p class="eyebrow">How we build</p>
+  <section class="section wrap" id="pipeline">
+    <p class="eyebrow">In the works</p>
+    <p class="lead">Four areas, all built the same way. Each appears here with a name when it is ready for someone other than us.</p>
     <div class="grid">
       <div class="nb-card">
-        <span class="card-index">01</span>
-        <h3>Documentation is a graph</h3>
-        <p>A folder of files hides the relationships that matter. We treat every cross-reference as a typed edge, resolvable to a heading, a slide, or an operation, and make it navigable.</p>
+        <h3>Developer tooling</h3>
+        <p>A code indexer that gives editors and agents a structural view of a repository, and the pieces around Weft that make a documentation graph useful beyond the browser.</p>
       </div>
       <div class="nb-card">
-        <span class="card-index">02</span>
-        <h3>Embed, do not own</h3>
-        <p>Our tools mount into the page, repository, or workflow you already have. The host keeps its URL, its history, its search, and its data. We supply the part it does not have.</p>
+        <h3>Knowledge and agents</h3>
+        <p>A knowledge graph for what a team knows, agent frameworks that read the same graph people do, and voice as an interface to both.</p>
       </div>
       <div class="nb-card">
-        <span class="card-index">03</span>
-        <h3>Small pieces, plainly named</h3>
-        <p>Each library does one thing and can be reasoned about on its own. Products compose them; nothing depends on the composition.</p>
+        <h3>Platform</h3>
+        <p>The services a small lab needs to run its own things: authentication and single sign-on, a deployment backplane, a project dashboard. Built for ourselves first.</p>
+      </div>
+      <div class="nb-card">
+        <h3>Creative tools</h3>
+        <p>Writing tools, tabletop game aids, and image generation utilities. The same method, a different audience.</p>
       </div>
     </div>
   </section>
