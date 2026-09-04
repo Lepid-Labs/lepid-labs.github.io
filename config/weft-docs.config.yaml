@@ -1,0 +1,22 @@
+# Weft graph for Weft's own documentation, embedded at /docs/.
+# scripts/build.sh stages the pinned checkout's docs/ next to this file and
+# indexes it with this config instead of Weft's, which hides the user guides
+# from its nav. Node ids are relative to docsDir.
+docsDir: docs
+entryPoint: docs/README.md
+siteTitle: Weft documentation
+style: luminous-precision
+layout: default
+docOrder:
+  - README.md
+  - usage.md
+  - configuration.md
+  - theming.md
+  - features.md
+  - use-cases.md
+  - design-decisions.md
+  - implementation.md
+  - research.md
+  - PURPOSE.md
+  - plan.md
+docOrderStrict: false

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-nb-style="luminous-precision">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lepid Labs</title>
+<meta name="description" content="Lepid Labs builds small, composable developer tools. Documentation, code intelligence, and agents that stay close to the code.">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nazuraki/styles@0.3.4/luminous-precision/index.css">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body class="nb-bg">
+<header class="site-nav">
+  <a class="site-nav__brand" href="/" aria-label="Lepid Labs home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 16C10 5 2 6 3 12c1 5 8 6 13 4z" fill="var(--nb-primary)"/><path d="M16 16c6-11 14-10 13-4-1 5-8 6-13 4z" fill="var(--nb-primary)" opacity=".78"/><path d="M16 16c-6 6-12 12-8 13 4 1 7-7 8-13z" fill="var(--nb-accent)" opacity=".9"/><path d="M16 16c6 6 12 12 8 13-4 1-7-7-8-13z" fill="var(--nb-accent)" opacity=".65"/></svg>
+    Lepid Labs
+  </a>
+  <nav aria-label="Primary">
+    <ul class="site-nav__links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/docs/">Docs</a></li>
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="https://github.com/Lepid-Labs" rel="noopener">GitHub</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="eyebrow">Developer tooling</p>
+    <h1>Tools for teams whose <em>knowledge</em> lives in the repository.</h1>
+    <p>Lepid Labs builds small, composable developer tools. Documentation, code intelligence, and agents that stay close to the code they describe, embed where you already work, and never ask to own your data.</p>
+    <div class="actions">
+      <a class="nb-btn nb-btn--primary" href="/docs/">Explore Weft</a>
+      <a class="nb-btn nb-btn--accent" href="/faq/">Read the FAQ</a>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">Product</p>
+    <div class="product">
+      <div class="nb-card">
+        <div class="product__head">
+          <h3>Weft</h3>
+          <span class="nb-badge nb-badge--success">Public</span>
+          <span class="nb-badge">MIT</span>
+        </div>
+        <p class="lead">A documentation graph browser that lives in the repository alongside the code. Design docs, specs, API definitions, and diagrams become nodes with typed, anchor-level relationships between them. Any document is an entry point; navigation is the product.</p>
+        <p class="lead">It runs as a CLI over a local checkout, or embeds into any page as a single script pointed at a repository or a base URL. This site's FAQ and Docs pages are Weft embedded.</p>
+        <pre class="nb-pre">&lt;script src="weft.iife.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  Weft.mountWeft('#docs', { repo: 'acme/project' });
+&lt;/script&gt;</pre>
+      </div>
+      <div class="product__links">
+        <a class="nb-link" href="/docs/">Documentation <small>usage, configuration, theming</small></a>
+        <a class="nb-link" href="/faq/">FAQ <small>what it is, how to get it</small></a>
+        <a class="nb-link" href="https://lepid-labs.github.io/weft/" rel="noopener">Project site <small>Weft browsing its own docs</small></a>
+        <a class="nb-link" href="https://github.com/Lepid-Labs/weft" rel="noopener">Source <small>github.com/Lepid-Labs/weft</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section wrap">
+    <p class="eyebrow">How we build</p>
+    <div class="grid">
+      <div class="nb-card">
+        <span class="card-index">01</span>
+        <h3>Documentation is a graph</h3>
+        <p>A folder of files hides the relationships that matter. We treat every cross-reference as a typed edge, resolvable to a heading, a slide, or an operation, and make it navigable.</p>
+      </div>
+      <div class="nb-card">
+        <span class="card-index">02</span>
+        <h3>Embed, do not own</h3>
+        <p>Our tools mount into the page, repository, or workflow you already have. The host keeps its URL, its history, its search, and its data. We supply the part it does not have.</p>
+      </div>
+      <div class="nb-card">
+        <span class="card-index">03</span>
+        <h3>Small pieces, plainly named</h3>
+        <p>Each library does one thing and can be reasoned about on its own. Products compose them; nothing depends on the composition.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Lepid Labs</span>
+    <span><a href="https://github.com/Lepid-Labs" rel="noopener">GitHub</a> &middot; FAQ and Docs rendered by <a href="https://github.com/Lepid-Labs/weft" rel="noopener">Weft</a></span>
+  </div>
+</footer>
+</body>
+</html>

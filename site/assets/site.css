@@ -1,0 +1,111 @@
+/* Lepid Labs site chrome. Layout only: every colour, font, radius, and
+ * spacing value is a luminous-precision token from @nazuraki/styles. */
+
+:root {
+  --site-nav-h: 3.75rem;
+  --site-max: 68rem;
+  --site-gutter: clamp(1rem, 4vw, 2.5rem);
+}
+
+body { display: flex; flex-direction: column; min-height: 100vh; }
+main { flex: 1; }
+
+/* Navigation: a glass bar with a lit bottom hairline */
+.site-nav {
+  position: sticky; top: 0; z-index: 50;
+  height: var(--site-nav-h);
+  display: flex; align-items: center; justify-content: space-between; gap: var(--nb-space-3);
+  padding: 0 var(--site-gutter);
+  background: var(--nb-surface-glass);
+  backdrop-filter: blur(var(--nb-blur));
+  border-bottom: 1px solid var(--nb-border);
+}
+.site-nav__brand {
+  display: inline-flex; align-items: center; gap: var(--nb-space-2);
+  color: var(--nb-on-surface); text-decoration: none;
+  font-family: var(--nb-font-display); font-weight: var(--nb-font-weight-medium);
+  font-size: 1.05rem; letter-spacing: -0.01em;
+}
+.site-nav__brand svg { width: 1.5rem; height: 1.5rem; }
+.site-nav__links { display: flex; align-items: center; gap: var(--nb-space-4); margin: 0; padding: 0; list-style: none; }
+.site-nav__links a {
+  color: var(--nb-faint); text-decoration: none; text-transform: uppercase;
+  font-size: 12px; font-weight: var(--nb-font-weight-medium); letter-spacing: var(--nb-tracking-wide);
+  padding: var(--nb-space-2) 0; border-bottom: 2px solid transparent;
+  transition: color var(--nb-transition), border-color var(--nb-transition), text-shadow var(--nb-transition);
+}
+.site-nav__links a:hover, .site-nav__links a:focus-visible { color: var(--nb-on-surface); outline: none; }
+.site-nav__links a[aria-current="page"] {
+  color: var(--nb-accent); border-bottom-color: var(--nb-accent);
+  text-shadow: 0 0 12px var(--nb-accent-glow);
+}
+@media (max-width: 40rem) { .site-nav__links { gap: var(--nb-space-3); } .site-nav__links a { font-size: 11px; } }
+
+/* Page container */
+.wrap { max-width: var(--site-max); margin: 0 auto; padding: 0 var(--site-gutter); }
+.section { padding: clamp(3rem, 8vw, 6rem) 0; }
+.section + .section { padding-top: 0; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: var(--nb-space-2); margin: 0 0 var(--nb-space-4);
+  color: var(--nb-accent); text-transform: uppercase; font-size: 12px;
+  font-weight: var(--nb-font-weight-medium); letter-spacing: 0.12em;
+}
+.eyebrow::before { content: ""; width: 1.5rem; height: 1px; background: var(--nb-accent); box-shadow: 0 0 8px var(--nb-accent-glow); }
+
+/* Hero */
+.hero { padding: clamp(4rem, 12vw, 9rem) 0 clamp(3rem, 8vw, 6rem); }
+.hero h1 {
+  margin: 0 0 var(--nb-space-4); max-width: 18ch;
+  font-size: clamp(2.4rem, 6.5vw, 4.5rem); font-weight: var(--nb-font-weight-bold);
+  line-height: 1.05; letter-spacing: -0.02em;
+}
+.hero h1 em { font-style: normal; color: var(--nb-primary); text-shadow: 0 0 24px var(--nb-primary-glow); }
+.hero p { margin: 0 0 var(--nb-space-5); max-width: 58ch; color: var(--nb-faint); font-size: 1.05rem; line-height: 1.75; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--nb-space-3); }
+.actions .nb-btn { text-decoration: none; }
+
+/* Headings and prose */
+h2 { margin: 0 0 var(--nb-space-3); font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -0.015em; }
+h3 { margin: 0 0 var(--nb-space-2); font-size: 1.1rem; }
+.lead { margin: 0 0 var(--nb-space-5); max-width: 62ch; color: var(--nb-faint); line-height: 1.75; }
+.prose { max-width: 66ch; line-height: 1.8; }
+.prose p { margin: 0 0 var(--nb-space-3); }
+.prose a { text-decoration-color: var(--nb-primary-border); text-underline-offset: 0.2em; }
+
+/* Card grids */
+.grid { display: grid; gap: var(--nb-space-3); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); }
+.grid .nb-card p { margin: 0; color: var(--nb-faint); font-size: var(--nb-text-sm); line-height: 1.7; }
+.card-index { display: block; margin-bottom: var(--nb-space-3); color: var(--nb-accent); font-size: 12px; letter-spacing: var(--nb-tracking-wide); }
+
+/* Product spotlight */
+.product { display: grid; gap: var(--nb-space-5); grid-template-columns: 1.1fr 0.9fr; align-items: start; }
+.product__head { display: flex; align-items: center; gap: var(--nb-space-3); margin-bottom: var(--nb-space-3); }
+.product__head h3 { margin: 0; font-size: 1.6rem; }
+.product__links { display: grid; gap: var(--nb-space-2); }
+.product__links .nb-link { justify-content: space-between; }
+.product__links .nb-link small { color: var(--nb-faint); text-transform: none; letter-spacing: 0; font-weight: var(--nb-font-weight); }
+.product .nb-pre { margin-top: var(--nb-space-3); }
+@media (max-width: 52rem) { .product { grid-template-columns: 1fr; } }
+
+/* Footer */
+.site-footer {
+  margin-top: auto; padding: var(--nb-space-5) var(--site-gutter);
+  border-top: 1px solid var(--nb-border);
+  color: var(--nb-faint); font-size: 12px; letter-spacing: var(--nb-tracking-wide);
+}
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--nb-space-3); padding: 0; }
+.site-footer a { color: var(--nb-faint); text-decoration: none; }
+.site-footer a:hover { color: var(--nb-accent); }
+
+/* Embedded Weft pages: the reader fills the viewport below the nav */
+.embed-page main { display: flex; flex-direction: column; height: calc(100vh - var(--site-nav-h)); }
+.embed-page #weft-root { flex: 1; min-height: 0; }
+.embed-page .site-footer { display: none; }
+
+/* 404 */
+.status { text-align: center; padding: clamp(5rem, 15vw, 10rem) 0; }
+.status h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 0; color: var(--nb-primary); text-shadow: 0 0 32px var(--nb-primary-glow); }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav__links a { transition: none; }
+}

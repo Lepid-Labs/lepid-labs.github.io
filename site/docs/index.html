@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" data-nb-style="luminous-precision">
+<head>
+<title>Documentation · Lepid Labs</title>
+<meta name="description" content="Weft documentation: usage, configuration, theming, and design, rendered by Weft itself.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nazuraki/styles@0.3.4/luminous-precision/index.css">
+<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/weft.css">
+</head>
+<body class="nb-bg embed-page">
+<header class="site-nav">
+  <a class="site-nav__brand" href="/" aria-label="Lepid Labs home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 16C10 5 2 6 3 12c1 5 8 6 13 4z" fill="var(--nb-primary)"/><path d="M16 16c6-11 14-10 13-4-1 5-8 6-13 4z" fill="var(--nb-primary)" opacity=".78"/><path d="M16 16c-6 6-12 12-8 13 4 1 7-7 8-13z" fill="var(--nb-accent)" opacity=".9"/><path d="M16 16c6 6 12 12 8 13-4 1-7-7-8-13z" fill="var(--nb-accent)" opacity=".65"/></svg>
+    Lepid Labs
+  </a>
+  <nav aria-label="Primary">
+    <ul class="site-nav__links">
+      <li><a href="/about/">About</a></li>
+      <li><a href="/docs/" aria-current="page">Docs</a></li>
+      <li><a href="/faq/">FAQ</a></li>
+      <li><a href="https://github.com/Lepid-Labs" rel="noopener">GitHub</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div id="weft-root" aria-label="Documentation"></div>
+</main>
+<script src="/weft.iife.js"></script>
+<script>
+  // Corpus and manifest are served from this site; see scripts/build.sh.
+  Weft.mountWeft('#weft-root', {
+    baseUrl: '/docs',
+    manifestPath: '.weft/manifest.json',
+    style: 'luminous-precision'
+  });
+</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>&copy; 2026 Lepid Labs</span>
+    <span><a href="https://github.com/Lepid-Labs" rel="noopener">GitHub</a> &middot; FAQ and Docs rendered by <a href="https://github.com/Lepid-Labs/weft" rel="noopener">Weft</a></span>
+  </div>
+</footer>
+</body></html>
