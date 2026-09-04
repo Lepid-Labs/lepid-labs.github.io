@@ -85,6 +85,7 @@ h3 { margin: 0 0 var(--nb-space-2); font-size: 1.1rem; }
 .product__links .nb-link { justify-content: space-between; }
 .product__links .nb-link small { color: var(--nb-faint); text-transform: none; letter-spacing: 0; font-weight: var(--nb-font-weight); }
 .product .nb-pre { margin-top: var(--nb-space-3); }
+.product .actions { margin-top: var(--nb-space-4); }
 @media (max-width: 52rem) { .product { grid-template-columns: 1fr; } }
 
 /* Footer */
