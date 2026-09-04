@@ -1,0 +1,12 @@
+# Weft graph for the FAQ corpus embedded at /faq/.
+# Node ids are relative to docsDir; the manifest is written to site/faq/.weft/.
+docsDir: site/faq
+entryPoint: site/faq/README.md
+siteTitle: Lepid Labs FAQ
+style: luminous-precision
+layout: reader
+docOrder:
+  - README.md
+  - lepid-labs.md
+  - weft.md
+  - this-site.md
