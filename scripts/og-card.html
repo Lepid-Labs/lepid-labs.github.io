@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- Source for site/assets/og.png (1200x630). Render with `just og-image`. -->
+<html lang="en" data-nb-style="luminous-precision">
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@nazuraki/styles@0.3.4/luminous-precision/index.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    display: flex; flex-direction: column; justify-content: center; gap: 28px;
+    padding: 0 96px; box-sizing: border-box;
+    background: radial-gradient(ellipse 60% 70% at 85% 20%, var(--nb-primary-glow), transparent 70%), var(--nb-bg);
+    color: var(--nb-on-surface);
+  }
+  .brand { display: flex; align-items: center; gap: 24px; font-family: var(--nb-font-display); font-weight: 600; font-size: 40px; letter-spacing: -0.01em; }
+  .brand svg { width: 72px; height: 72px; }
+  h1 { margin: 0; max-width: 18ch; font-family: var(--nb-font-display); font-weight: 700; font-size: 72px; line-height: 1.05; letter-spacing: -0.02em; }
+  h1 em { font-style: normal; color: var(--nb-primary); text-shadow: 0 0 32px var(--nb-primary-glow); }
+  p { margin: 0; font-family: var(--nb-font-mono); font-size: 24px; color: var(--nb-faint); }
+  .rule { width: 48px; height: 2px; background: var(--nb-accent); box-shadow: 0 0 12px var(--nb-accent-glow); }
+</style>
+</head>
+<body>
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 16C10 5 2 6 3 12c1 5 8 6 13 4z" fill="var(--nb-primary)"/><path d="M16 16c6-11 14-10 13-4-1 5-8 6-13 4z" fill="var(--nb-primary)" opacity=".78"/><path d="M16 16c-6 6-12 12-8 13 4 1 7-7 8-13z" fill="var(--nb-accent)" opacity=".9"/><path d="M16 16c6 6 12 12 8 13-4 1-7-7-8-13z" fill="var(--nb-accent)" opacity=".65"/></svg>
+    Lepid Labs
+  </div>
+  <div class="rule"></div>
+  <h1>Tools for teams whose <em>knowledge</em> lives in the repository.</h1>
+  <p>Small, composable developer tools. lepid-labs.github.io</p>
+</body>
+</html>

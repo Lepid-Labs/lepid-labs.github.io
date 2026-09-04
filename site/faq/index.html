@@ -3,6 +3,16 @@
 <head>
 <title>FAQ · Lepid Labs</title>
 <meta name="description" content="Frequently asked questions about Lepid Labs and Weft, rendered as a Weft documentation graph.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lepid Labs">
+<meta property="og:title" content="FAQ · Lepid Labs">
+<meta property="og:description" content="Frequently asked questions about Lepid Labs and Weft, rendered as a Weft documentation graph.">
+<meta property="og:url" content="https://lepid-labs.github.io/faq/">
+<meta property="og:image" content="https://lepid-labs.github.io/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lepid Labs: tools for teams whose knowledge lives in the repository.">
+<meta name="twitter:card" content="summary_large_image">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
@@ -29,6 +39,18 @@
   </nav>
 </header>
 <main>
+  <section class="section wrap embed-fallback" id="weft-fallback">
+    <p class="eyebrow">FAQ</p>
+    <h2>Frequently asked questions</h2>
+    <p class="lead">Answers to the questions we get about Lepid Labs and about Weft, kept as a small documentation graph so that every answer can point at the one it depends on. The same answers are plain Markdown in the site repository.</p>
+    <ul class="embed-fallback__list">
+      <li><a href="https://github.com/Lepid-Labs/lepid-labs.github.io/blob/main/site/faq/lepid-labs.md" rel="noopener">About Lepid Labs</a>: who we are, what we make, how to reach us.</li>
+      <li><a href="https://github.com/Lepid-Labs/lepid-labs.github.io/blob/main/site/faq/weft.md" rel="noopener">About Weft</a>: what it is, how to run or embed it, licensing, status.</li>
+      <li><a href="https://github.com/Lepid-Labs/lepid-labs.github.io/blob/main/site/faq/this-site.md" rel="noopener">About this site</a>: how the FAQ and Docs pages are built, and why they look the way they do.</li>
+    </ul>
+    <p class="embed-fallback__status" role="status">Loading the interactive reader&hellip;</p>
+    <noscript><style>.embed-fallback__status { display: none; }</style><p class="embed-fallback__status">The interactive reader needs JavaScript. The links above open the same answers on GitHub.</p></noscript>
+  </section>
   <div id="weft-root" aria-label="FAQ"></div>
 </main>
 <script src="/weft.iife.js"></script>
@@ -39,6 +61,8 @@
     manifestPath: '.weft/manifest.json',
     style: 'luminous-precision'
   });
+  // The static intro is for crawlers, previews, and failed loads; the reader replaces it.
+  document.getElementById('weft-fallback').hidden = true;
 </script>
 <footer class="site-footer">
   <div class="wrap">
