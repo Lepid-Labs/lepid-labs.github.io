@@ -1,0 +1,27 @@
+# Build output
+_build/
+_site/
+
+# Generated Weft manifests (rebuilt by scripts/build.sh)
+.weft/
+
+# Dependencies (none expected, but keep the tree clean)
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code local state
+.claude/settings.local.json
+.claude/launch.json
+.claude/scheduled_tasks.lock
+_build-full.log
