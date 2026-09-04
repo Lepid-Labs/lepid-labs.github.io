@@ -102,6 +102,13 @@ h3 { margin: 0 0 var(--nb-space-2); font-size: 1.1rem; }
 .embed-page #weft-root { flex: 1; min-height: 0; }
 .embed-page .site-footer { display: none; }
 
+/* Static intro shown until the reader mounts, and left in place if it never does */
+.embed-fallback { flex: none; overflow: auto; }
+.embed-fallback[hidden] { display: none; }
+.embed-fallback__list { margin: 0 0 var(--nb-space-5); padding-left: 1.25rem; max-width: 62ch; color: var(--nb-faint); line-height: 1.8; }
+.embed-fallback__list a { color: var(--nb-on-surface); text-decoration-color: var(--nb-primary-border); text-underline-offset: 0.2em; }
+.embed-fallback__status { margin: 0; color: var(--nb-faint); font-size: var(--nb-text-sm); }
+
 /* 404 */
 .status { text-align: center; padding: clamp(5rem, 15vw, 10rem) 0; }
 .status h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 0; color: var(--nb-primary); text-shadow: 0 0 32px var(--nb-primary-glow); }

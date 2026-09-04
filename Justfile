@@ -49,6 +49,11 @@ weft-bump:
     git ls-remote https://github.com/Lepid-Labs/weft.git refs/heads/main | cut -f1 > weft.ref
     @cat weft.ref
 
+# Re-render site/assets/og.png from scripts/og-card.html (needs a Chrome binary)
+og-image chrome="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome":
+    "{{chrome}}" --headless=new --disable-gpu --hide-scrollbars --window-size=1200,630 \
+        --virtual-time-budget=8000 --screenshot="$PWD/site/assets/og.png" "file://$PWD/scripts/og-card.html"
+
 # Remove build output
 clean:
     rm -rf _build _site site/faq/.weft
