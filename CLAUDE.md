@@ -1,6 +1,8 @@
 # lepid-labs.github.io — agent instructions
 
-Read [CONTEXT.md](CONTEXT.md) before changing anything; update it as the last step of every implementation task.
+Documentation follows the [Project Documentation spec](site/spec/project-documentation/v1.0.0/index.md). Read
+[docs/requirements.md](docs/requirements.md) and [docs/decisions.md](docs/decisions.md) before changing anything. In the
+same change, record new or changed requirements and decisions there, and update any runbook whose steps changed.
 
 ## Commands
 
