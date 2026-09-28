@@ -1,13 +1,13 @@
 <!doctype html>
 <html lang="en" data-nb-style="luminous-precision">
 <head>
-<title>About · Lepid Labs</title>
-<meta name="description" content="Why Lepid Labs exists, how it works, and how to reach it.">
-<meta property="og:type" content="website">
+<title>{{title}} · Lepid Labs</title>
+<meta name="description" content="{{description}}">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Lepid Labs">
-<meta property="og:title" content="About · Lepid Labs">
-<meta property="og:description" content="Why Lepid Labs exists, how it works, and how to reach it.">
-<meta property="og:url" content="https://lepid-labs.github.io/about/">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="https://lepid-labs.github.io{{path}}">
 <meta property="og:image" content="https://lepid-labs.github.io/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -15,6 +15,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://lepid-labs.github.io{{path}}">
 <link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,31 +31,25 @@
   </a>
   <nav aria-label="Primary">
     <ul class="site-nav__links">
-      <li><a href="/about/" aria-current="page">About</a></li>
+      <li><a href="/about/">About</a></li>
       <li><a href="/docs/">Docs</a></li>
       <li><a href="/faq/">FAQ</a></li>
-      <li><a href="/spec/">Specs</a></li>
+      <li><a href="/spec/" aria-current="page">Specs</a></li>
       <li><a href="https://github.com/Lepid-Labs" rel="noopener">GitHub</a></li>
     </ul>
   </nav>
 </header>
 <main>
-  <section class="section wrap">
-    <p class="eyebrow">About</p>
-    <h2>A software lab.</h2>
-    <div class="prose">
-      <p>Every professional keeps a list of tools they would rebuild if they had the time. Lepid Labs is what happens when a working engineer finally has it. We build the things on that list, one at a time, small enough to finish, and release the ones that turn out to be useful to someone else.</p>
-      <p>We use AI-assisted development heavily. That is what makes a portfolio this wide possible for a lab this small. It is a fact about how we work, not a feature of what we make: every tool has to stand on its own, and the <a href="/#method">method</a> is the same either way.</p>
-      <p>The first release is <a href="/docs/">Weft</a>, a documentation graph browser. It is MIT licensed and developed in the open; anything else that is useful on its own and safe to share follows the same path. What is coming after it is listed on the <a href="/#pipeline">home page</a>.</p>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <p class="eyebrow">Contact</p>
-    <div class="prose">
-      <p>The organisation lives at <a href="https://github.com/Lepid-Labs" rel="noopener">github.com/Lepid-Labs</a>. Questions and bug reports about Weft go to <a href="https://github.com/Lepid-Labs/weft/issues" rel="noopener">its issue tracker</a>; the <a href="/faq/">FAQ</a> answers the common ones.</p>
-    </div>
-  </section>
+  <div class="section wrap spec">
+    <aside class="spec__toc" aria-label="Contents">
+      <p class="eyebrow">Specification</p>
+      <p class="spec__meta"><a href="/spec/">All specs</a> &middot; <a href="index.md">Markdown source</a></p>
+      {{toc}}
+    </aside>
+    <article class="spec__body">
+{{content}}
+    </article>
+  </div>
 </main>
 <footer class="site-footer">
   <div class="wrap">

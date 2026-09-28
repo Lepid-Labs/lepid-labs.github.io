@@ -21,6 +21,7 @@ main { flex: 1; }
   border-bottom: 1px solid var(--nb-border);
 }
 .site-nav__brand {
+  white-space: nowrap;
   display: inline-flex; align-items: center; gap: var(--nb-space-2);
   color: var(--nb-on-surface); text-decoration: none;
   font-family: var(--nb-font-display); font-weight: var(--nb-font-weight-medium);
@@ -39,11 +40,11 @@ main { flex: 1; }
   color: var(--nb-accent); border-bottom-color: var(--nb-accent);
   text-shadow: 0 0 12px var(--nb-accent-glow);
 }
-@media (max-width: 40rem) { .site-nav__links { gap: var(--nb-space-3); } .site-nav__links a { font-size: 11px; } }
+@media (max-width: 40rem) { .site-nav__links { gap: var(--nb-space-2); } .site-nav__links a { font-size: 11px; } }
 
 /* Page container */
 .wrap { max-width: var(--site-max); margin: 0 auto; padding: 0 var(--site-gutter); }
-.section { padding: clamp(3rem, 8vw, 6rem) 0; }
+.section { padding-block: clamp(3rem, 8vw, 6rem); }
 .section + .section { padding-top: 0; }
 .eyebrow {
   display: inline-flex; align-items: center; gap: var(--nb-space-2); margin: 0 0 var(--nb-space-4);
@@ -53,7 +54,7 @@ main { flex: 1; }
 .eyebrow::before { content: ""; width: 1.5rem; height: 1px; background: var(--nb-accent); box-shadow: 0 0 8px var(--nb-accent-glow); }
 
 /* Hero */
-.hero { padding: clamp(4rem, 12vw, 9rem) 0 clamp(3rem, 8vw, 6rem); }
+.hero { padding-block: clamp(4rem, 12vw, 9rem) clamp(3rem, 8vw, 6rem); }
 .hero h1 {
   margin: 0 0 var(--nb-space-4); max-width: 18ch;
   font-size: clamp(2.4rem, 6.5vw, 4.5rem); font-weight: var(--nb-font-weight-bold);
@@ -110,8 +111,40 @@ h3 { margin: 0 0 var(--nb-space-2); font-size: 1.1rem; }
 .embed-fallback__list a { color: var(--nb-on-surface); text-decoration-color: var(--nb-primary-border); text-underline-offset: 0.2em; }
 .embed-fallback__status { margin: 0; color: var(--nb-faint); font-size: var(--nb-text-sm); }
 
+/* Specs: body rendered from Markdown, contents beside it on wide screens */
+.spec { display: grid; gap: var(--nb-space-5); }
+.spec__meta { margin: 0 0 var(--nb-space-3); color: var(--nb-faint); font-size: var(--nb-text-sm); }
+.spec__meta a, .spec__toc a { color: var(--nb-faint); text-decoration: none; }
+.spec__meta a:hover, .spec__toc a:hover { color: var(--nb-accent); }
+.spec__toc ul { margin: 0; padding: 0; list-style: none; font-size: var(--nb-text-sm); line-height: 1.5; }
+.spec__toc li { padding: var(--nb-space-1) 0; }
+.spec__toc ul ul { padding: var(--nb-space-1) 0 0 var(--nb-space-3); }
+@media (min-width: 60rem) {
+  .spec { grid-template-columns: 15rem minmax(0, 1fr); }
+  .spec__toc {
+    position: sticky; top: calc(var(--site-nav-h) + var(--nb-space-4)); align-self: start;
+    max-height: calc(100vh - var(--site-nav-h) - 2 * var(--nb-space-4)); overflow-y: auto;
+  }
+}
+.spec__body { min-width: 0; max-width: 72ch; line-height: 1.8; }
+.spec__body h1 { margin: 0 0 var(--nb-space-3); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; letter-spacing: -0.02em; }
+.spec__body h2 { margin-top: calc(2 * var(--nb-space-5)); padding-top: var(--nb-space-4); border-top: 1px solid var(--nb-border); }
+.spec__body h3 { margin-top: var(--nb-space-5); }
+.spec__body :is(h2, h3) { scroll-margin-top: calc(var(--site-nav-h) + var(--nb-space-3)); }
+.spec__body :is(p, ul, ol) { margin: 0 0 var(--nb-space-3); }
+.spec__body a { text-decoration-color: var(--nb-primary-border); text-underline-offset: 0.2em; }
+.spec__body code { font-family: var(--nb-font-mono); font-size: 0.88em; }
+.spec__body :not(pre) > code {
+  padding: 0.1em 0.35em; background: var(--nb-surface-sunken);
+  border: 1px solid var(--nb-border); border-radius: var(--nb-radius); overflow-wrap: anywhere;
+}
+.spec__body .nb-pre { margin: 0 0 var(--nb-space-4); line-height: 1.6; }
+.spec__scroll { margin: 0 0 var(--nb-space-4); overflow-x: auto; }
+.spec__scroll .nb-table td { vertical-align: top; line-height: 1.6; }
+.spec__scroll .nb-table td:first-child code { white-space: nowrap; }
+
 /* 404 */
-.status { text-align: center; padding: clamp(5rem, 15vw, 10rem) 0; }
+.status { text-align: center; padding-block: clamp(5rem, 15vw, 10rem); }
 .status h1 { font-size: clamp(3rem, 10vw, 6rem); margin: 0; color: var(--nb-primary); text-shadow: 0 0 32px var(--nb-primary-glow); }
 
 @media (prefers-reduced-motion: reduce) {

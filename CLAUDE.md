@@ -11,7 +11,10 @@ Read [CONTEXT.md](CONTEXT.md) before changing anything; update it as the last st
 ## Conventions
 
 - Plain HTML and CSS under `site/`. No framework, no npm dependencies, no build step for the site itself.
-- Styling: `data-nb-style="luminous-precision"` on `<html>`, `nb-*` classes and `--nb-*` tokens only. No literal colours or fonts in `site/assets/site.css`. Missing components go upstream to ui-std-lib.
+- Styling: `data-nb-style="luminous-precision"` on `<html>`, `nb-*` classes and `--nb-*` tokens only. No literal colours
+  or fonts in `site/assets/site.css`. Missing components go upstream to ui-std-lib.
 - FAQ content is Markdown in `site/faq/`; list new documents in `weft.config.yaml` `docOrder`.
+- Specs are Markdown at `site/spec/<name>/v<semver>/index.md`, rendered at build time. Never edit a published version;
+  add a new version and list it in `site/spec/index.html`, and point `site/spec/<name>/index.html` at it.
 - Public repository: no filesystem paths, hostnames, emails, or credentials in code or docs.
 - Do not add dependencies without asking.

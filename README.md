@@ -4,11 +4,14 @@
 
 Corporate website for Lepid Labs, published with GitHub Pages at the organisation root.
 
-Static HTML in the [luminous-precision](https://github.com/nazuraki/ui-std-lib) style. The FAQ and Documentation pages are [Weft](https://github.com/Lepid-Labs/weft) in embedded form: the FAQ is a Markdown corpus in this repository, and the Documentation page renders Weft's own docs from the pinned checkout.
+Static HTML in the [luminous-precision](https://github.com/nazuraki/ui-std-lib) style. The FAQ and Documentation pages
+are [Weft](https://github.com/Lepid-Labs/weft) in embedded form: the FAQ is a Markdown corpus in this repository, and
+the Documentation page renders Weft's own docs from the pinned checkout.
 
 | Path | Purpose |
 |------|---------|
-| [`site/`](site) | The pages as deployed: home, about, FAQ, docs, 404, shared CSS |
+| [`site/`](site) | The pages as deployed: home, about, FAQ, docs, specs, 404, shared CSS |
+| [`site/spec/`](site/spec) | Versioned specifications as Markdown, rendered to static pages by `scripts/render-specs.mjs` |
 | [`site/faq/*.md`](site/faq) | FAQ corpus, indexed by Weft (`weft.config.yaml`) |
 | [`config/weft-docs.config.yaml`](config/weft-docs.config.yaml) | Weft config used to index Weft's own docs for `/docs/` |
 | [`scripts/build.sh`](scripts/build.sh) | Clones and builds Weft at `weft.ref`, generates both manifests, assembles `_site/` |
@@ -33,12 +36,16 @@ With a Weft checkout next door that is already built, `just dev` skips the clone
 
 ## Updating Weft
 
-`just weft-bump` points `weft.ref` at the tip of Weft's main. Rebuild and check the FAQ and Documentation pages before merging.
+`just weft-bump` points `weft.ref` at the tip of Weft's main. Rebuild and check the FAQ and Documentation pages before
+merging.
 
 ## Deployment
 
-Merging to main runs the `pages` workflow: build, link check, deploy. Pages must be configured to deploy from GitHub Actions.
+Merging to main runs the `pages` workflow: build, link check, deploy. Pages must be configured to deploy from GitHub
+Actions.
 
 ## License
 
-Site content and design are © Lepid Labs, all rights reserved. Weft is MIT licensed in its own repository.
+Proprietary: © Lepid Labs, all rights reserved (see [LICENSE](LICENSE)). The exception is the specifications under
+[`site/spec/`](site/spec), which are [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Weft is MIT licensed in
+its own repository.
