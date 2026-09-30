@@ -127,9 +127,12 @@ Terms defined in Project Documentation and Project Details keep their meaning he
 
 2. A workflow that publishes two kinds of deliverable, or a service that publishes two image names, MUST NOT exist. The
    second deliverable belongs in its own repository.
-3. **Library.** `release.yml` MUST run on push to the default branch, compute the next version from the Conventional
-   Commit titles since the last tag, commit the bump as `chore(release): v<version>`, tag it, and create the GitHub
-   release. It MUST NOT run on its own bump commit, and MUST use a concurrency group that does not cancel in progress.
+3. **Library.** `release.yml` SHOULD run on push to the default branch, so every merge releases. An owner who prefers
+   to batch changes into fewer releases MUST instead run it on `workflow_dispatch`; it MAY have both triggers. Either
+   way the job is the same, so switching is a change to the trigger alone. It MUST compute the next version from the
+   Conventional Commit titles since the last tag, commit the bump as `chore(release): v<version>`, tag it, and create
+   the GitHub release. It MUST NOT run on its own bump commit, and MUST use a concurrency group that does not cancel in
+   progress.
    `publish.yml` MUST run on `v*` tags and publish with provenance. A library monorepo publishes every publishable
    package at the tagged version.
 4. **Native app.** `release.yml` MUST run on `workflow_dispatch`, compute the version and changelog, tag, build the
