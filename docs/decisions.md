@@ -15,3 +15,4 @@ Questions not yet worth a record are in [open-questions.md](open-questions.md).
 | [0007 Render the social preview image from HTML](decisions/0007-render-social-image-from-html.md) | `og.png` comes from a themed HTML card via headless Chrome and is committed. | accepted |
 | [0008 Scope of the Documentation page](decisions/0008-documentation-page-scope.md) | Whether Docs shows Weft's internal specification documents or only its user guides. | open |
 | [0009 Share nav markup through a templating step](decisions/0009-share-nav-markup.md) | Whether to replace the duplicated nav and footer with a build-time partial. | open |
+| [0010 Layer the project specifications](decisions/0010-layer-project-specifications.md) | Project Documentation, Project Details, and Project Operations, each building on the last. | accepted |
