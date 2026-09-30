@@ -41,7 +41,7 @@ Terms defined in Project Documentation and Project Details keep their meaning he
 1. Squash merging MUST be the only merge method. Merge commits and rebase merging MUST be disabled.
 2. The squash commit title MUST be the pull request title, and the squash commit message MUST be blank.
 3. Suggesting branch updates MUST be enabled, and head branches MUST be deleted on merge.
-4. Auto-merge MUST be disabled.
+4. Auto-merge MAY be enabled. It merges only once the ruleset (section 4) is satisfied, so it cannot skip a review or a check.
 5. The repository description MUST be set. When GitHub Pages is enabled, the homepage MUST be the Pages URL.
 6. The wiki MUST be disabled; documentation lives in the repository. Discussions SHOULD be disabled unless the project
    uses them.
