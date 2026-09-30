@@ -16,8 +16,9 @@ Publish three specifications, each building on the one before and naming the ver
    or two sentences. Both only relax rules, so this is a minor release. Section 6 stays as a pointer to Project
    Details so that section numbers cited elsewhere do not shift.
 2. **Project Details 1.0.0**: the README opening. The details line holds the type badge, then the status badge, then
-   a version badge for projects with versioned releases, and nothing else. The description follows, then any other
-   badges. `archived` becomes a status, because the old separate archived badge would break the details-line rule.
+   a version badge for projects with versioned releases, then optionally a license badge, and nothing else. The
+   description follows, then any other badges. `archived` becomes a status, because the old separate archived badge
+   would break the details-line rule.
 3. **Project Operations 1.0.0**: GitHub repository settings, security, code owners, the branch ruleset, CI, PR titles,
    releases by type, and labels. It builds on Project Details because the repository type decides the release shape.
 

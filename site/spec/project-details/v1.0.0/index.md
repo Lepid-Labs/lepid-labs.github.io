@@ -1,7 +1,7 @@
 # Project Details 1.0.0
 
 The Project Details specification standardizes the top of a project's README: what kind of project it is, how mature
-it is, and which version is current, in the same place and the same form in every repository.
+it is, which version is current, and how it is licensed, in the same place and the same form in every repository.
 
 ## Summary
 
@@ -11,8 +11,8 @@ Project Details only if it also conforms to Project Documentation.
 Every README opens the same way:
 
 1. The project name as the H1.
-2. The **details line**: a type badge, a status badge, and, for a project that publishes versioned releases, a version
-   badge. Nothing else.
+2. The **details line**: a type badge, a status badge, a version badge for a project that publishes versioned releases,
+   and optionally a license badge. Nothing else.
 3. A description of one or two sentences.
 4. Any other badges.
 
@@ -25,12 +25,12 @@ in [RFC 2119](https://www.rfc-editor.org/rfc/rfc2119).
 
 Terms defined in Project Documentation keep their meaning here.
 
-- **Details line**: the paragraph immediately after the README's H1, holding only the type, status, and version
-  badges.
+- **Details line**: the paragraph immediately after the README's H1, holding only the type, status, version, and
+  license badges.
 - **Type**: what the repository delivers, judged by its primary interface and distribution (section 3).
 - **Status**: the project's stage of maturity (section 4).
 - **Description**: the paragraph immediately after the details line.
-- **Other badges**: any badge that is not on the details line, such as CI, coverage, license, or conformance badges.
+- **Other badges**: any badge that is not on the details line, such as CI, coverage, or conformance badges.
 
 ## Specification
 
@@ -48,7 +48,8 @@ Terms defined in Project Documentation keep their meaning here.
 1. The details line MUST hold, in this order and on one line:
    1. the type badge (section 3);
    2. the status badge (section 4);
-   3. the version badge (section 5), when the project publishes versioned releases.
+   3. the version badge (section 5), when the project publishes versioned releases;
+   4. the license badge (section 6), if the project carries one.
 2. Badges on the details line MUST be separated by single spaces.
 3. The details line MUST NOT contain any other badge, link, or text.
 
@@ -87,7 +88,7 @@ Terms defined in Project Documentation keep their meaning here.
 2. The status badge MUST be updated in the same change that moves the project to a new stage.
 3. An archived project SHOULD say in its description, or in a line directly below it, what replaced it, if anything.
 4. In a monorepo, only the root README carries a status badge, except that an independently published package MAY
-   carry its own (section 6).
+   carry its own (section 7).
 
 ### 5. Version
 
@@ -107,12 +108,26 @@ Terms defined in Project Documentation keep their meaning here.
 4. The version badge MAY be a link to the release it shows or to the registry page.
 5. A library monorepo that publishes all its packages at one version carries one version badge at the root.
 
-### 6. Monorepos
+### 6. License
+
+1. The details line MAY end with a license badge. A license badge MUST NOT appear anywhere else in the README.
+2. The badge MUST name the license that `LICENSE` names for the project as a whole, and MUST be updated in the same
+   change as `LICENSE`. Parts under other terms are not shown.
+3. An open source license MUST be written as its [SPDX](https://spdx.org/licenses/) identifier or expression, in this
+   form: `![License: <spdx>](https://img.shields.io/badge/license-<spdx>-blue)`. In the URL, a hyphen is written `--`
+   and a space `_`, so `Apache-2.0` is `license-Apache--2.0-blue` and `MIT OR Apache-2.0` is
+   `license-MIT_OR_Apache--2.0-blue`.
+4. A proprietary project MUST write
+   `![License: proprietary](https://img.shields.io/badge/license-proprietary-lightgrey)`.
+5. The badge MAY be a link to `LICENSE`.
+
+### 7. Monorepos
 
 1. The root README carries the details line for the repository.
 2. A package README MUST NOT carry a type badge.
 3. An independently published package MAY open its README with a details line of its own, holding only its status
-   badge followed by its version badge. Every other package README MUST NOT carry a details line.
+   badge followed by its version badge, and a license badge if the package has its own `LICENSE`. Every other package
+   README MUST NOT carry a details line.
 
 ## Examples
 
@@ -121,7 +136,7 @@ Terms defined in Project Documentation keep their meaning here.
 ```markdown
 # parser
 
-![Type: library](https://img.shields.io/badge/type-library-blueviolet) ![Status: beta](https://img.shields.io/badge/status-beta-blue) ![Version](https://img.shields.io/npm/v/@example/parser?label=version)
+![Type: library](https://img.shields.io/badge/type-library-blueviolet) ![Status: beta](https://img.shields.io/badge/status-beta-blue) ![Version](https://img.shields.io/npm/v/@example/parser?label=version) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 A streaming parser for configuration files. It reports every error in one pass, with line and column.
 
@@ -156,13 +171,23 @@ often, so the start of the line stays fixed while the status and version move.
 
 ### Why keep other badges off the details line?
 
-So a reader, or a script, finds the same three facts in the same place in every repository. CI, coverage, and license
-badges vary from project to project; once they share the line, the line stops being scannable.
+So a reader, or a script, finds the same few facts in the same place in every repository. CI and coverage badges vary
+from project to project; once they share the line, the line stops being scannable.
 
 ### Why is archived a status and not an extra badge?
 
 An archived project is not in any other stage in a way that matters to a reader: it is not maintained. One badge says
 so without adding a fourth item to the details line.
+
+### Why is the license on the details line, but optional?
+
+Whether a reader may use the project at all is as basic a fact as what it is and how mature it is. It is optional
+because Project Documentation already requires a license line and a `LICENSE` file; the badge only saves a scroll.
+
+### Why is the license badge static when the version badge is not?
+
+The license rarely changes and always changes in a commit that edits `LICENSE`, where the same change can edit the
+badge. The dynamic GitHub license badge cannot read private repositories and cannot name a proprietary license.
 
 ### Why must the version badge be dynamic?
 

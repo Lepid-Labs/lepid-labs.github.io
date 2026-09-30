@@ -1,6 +1,6 @@
 # lepid-labs.github.io
 
-![Type: web app](https://img.shields.io/badge/type-web_app-blueviolet) ![Status: in progress](https://img.shields.io/badge/status-in_progress-orange)
+![Type: web app](https://img.shields.io/badge/type-web_app-blueviolet) ![Status: in progress](https://img.shields.io/badge/status-in_progress-orange) [![License: proprietary](https://img.shields.io/badge/license-proprietary-lightgrey)](LICENSE)
 
 Corporate website for Lepid Labs, published with GitHub Pages at the organisation root.
 
