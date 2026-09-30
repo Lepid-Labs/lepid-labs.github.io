@@ -130,13 +130,16 @@ Terms defined in Project Documentation and Project Details keep their meaning he
    `publish.yml` MUST run on `v*` tags and publish with provenance. A library monorepo publishes every publishable
    package at the tagged version.
 4. **Native app.** `release.yml` MUST run on `workflow_dispatch`, compute the version and changelog, tag, build the
-   installers on each supported platform, and attach them to the GitHub release.
+   installers on each supported platform, and attach them to the GitHub release. When the README carries a static
+   version badge (item 7), it MUST first commit the bump as `chore(release): v<version>` and tag that commit.
 5. **Service, and web app shipped as a container.** `publish.yml` MUST run on push to the default branch and on `v*`
    tags, push the image to the GitHub Container Registry tagged `latest` (default branch only), `sha-<short sha>`, and
    the semantic version on tags, with `packages: write` and a concurrency group per ref. There is no `release.yml`.
 6. **Web app shipped as a static site.** `pages.yml` MUST build with the task runner and deploy with
    `actions/deploy-pages` through the `github-pages` environment. Pages MUST be set to deploy from a workflow. Every
    merge to the default branch is a release.
+7. When the README's version badge is static (Project Details, section 5.4), the release commit MUST rewrite it to the
+   new version. No other commit may change it.
 
 ### 8. Labels
 

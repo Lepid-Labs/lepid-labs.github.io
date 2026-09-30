@@ -11,8 +11,8 @@ Project Details only if it also conforms to Project Documentation.
 Every README opens the same way:
 
 1. The project name as the H1.
-2. The **details line**: a type badge, a status badge, a version badge for a project that publishes versioned releases,
-   and optionally a license badge. Nothing else.
+2. The **details line**: a type badge, a status badge, a version badge for a library or native app that publishes
+   versioned releases, and optionally a license badge. Nothing else.
 3. A description of one or two sentences.
 4. Any other badges.
 
@@ -48,7 +48,7 @@ Terms defined in Project Documentation keep their meaning here.
 1. The details line MUST hold, in this order and on one line:
    1. the type badge (section 3);
    2. the status badge (section 4);
-   3. the version badge (section 5), when the project publishes versioned releases;
+   3. the version badge (section 5), when section 5 requires one;
    4. the license badge (section 6), if the project carries one.
 2. Badges on the details line MUST be separated by single spaces.
 3. The details line MUST NOT contain any other badge, link, or text.
@@ -92,9 +92,13 @@ Terms defined in Project Documentation keep their meaning here.
 
 ### 5. Version
 
-1. A project that publishes versioned releases MUST carry a version badge. A project that does not MUST NOT.
-2. The version badge MUST show the latest released version and MUST read it from where the release is published, so
-   that it never needs a manual edit. Use the shields.io badge for that source, with the label set to `version`:
+1. A library or native app that publishes versioned releases MUST carry a version badge. Any other project MUST NOT.
+   A service or web app carries none even when it tags releases, because what is deployed is the latest build of the
+   default branch, not the latest tag.
+2. The version badge MUST show the latest released version and MUST NOT need a manual edit.
+3. Where the release is published somewhere publicly readable, the badge MUST read the version from there, using the
+   shields.io badge for that source with the label set to `version`. For a public registry not listed below, use that
+   registry's shields.io version badge the same way.
 
 | Published to | Markdown |
 |--------------|----------|
@@ -102,11 +106,12 @@ Terms defined in Project Documentation keep their meaning here.
 | npm | `![Version](https://img.shields.io/npm/v/<package>?label=version)` |
 | PyPI | `![Version](https://img.shields.io/pypi/v/<package>?label=version)` |
 | crates.io | `![Version](https://img.shields.io/crates/v/<crate>?label=version)` |
-
-3. A project published to a registry not listed MUST use that registry's shields.io version badge with
-   `label=version`.
-4. The version badge MAY be a link to the release it shows or to the registry page.
-5. A library monorepo that publishes all its packages at one version carries one version badge at the root.
+4. Where the release is not publicly readable, such as a private repository's releases or a private GitHub Packages
+   registry, the badge MUST be `![Version](https://img.shields.io/badge/version-<version>-blue)`, and the release
+   automation MUST rewrite it in the release commit (Project Operations, section 7). In the URL a hyphen is written
+   `--`, so `2.0.0-rc.1` is `version-2.0.0--rc.1-blue`.
+5. The version badge MAY be a link to the release it shows or to the registry page.
+6. A library monorepo that publishes all its packages at one version carries one version badge at the root.
 
 ### 6. License
 
@@ -143,7 +148,7 @@ A streaming parser for configuration files. It reports every error in one pass, 
 ![CI](https://github.com/example/parser/actions/workflows/ci.yml/badge.svg) [![Docs: project-details 1.0.0](https://img.shields.io/badge/docs-project--details_1.0.0-blueviolet)](https://lepid-labs.github.io/spec/project-details/v1.0.0/)
 ```
 
-### Service without versioned releases
+### Service
 
 ```markdown
 # edge-proxy
@@ -184,16 +189,22 @@ so without adding a fourth item to the details line.
 Whether a reader may use the project at all is as basic a fact as what it is and how mature it is. It is optional
 because Project Documentation already requires a license line and a `LICENSE` file; the badge only saves a scroll.
 
-### Why is the license badge static when the version badge is not?
+### Why is the license badge static when a public version badge is not?
 
 The license rarely changes and always changes in a commit that edits `LICENSE`, where the same change can edit the
 badge. The dynamic GitHub license badge cannot read private repositories and cannot name a proprietary license.
 
-### Why must the version badge be dynamic?
+### Why must the version badge never be edited by hand?
 
 A hand-edited version is wrong from the first release after someone forgets to update it. A badge that reads the
 registry or the GitHub release is correct every time, which is the same reason Project Documentation keeps derivable
-content out of documents.
+content out of documents. Badge services cannot read private sources, so a private project gets the same guarantee a
+different way: the release commit that sets the version also sets the badge.
+
+### Why do services and web apps have no version badge?
+
+What runs is the latest build of the default branch, deployed on every merge. A tag marks a point in that history, but
+a badge showing the latest tag would suggest that the tag is what is deployed.
 
 ### How is this specification versioned?
 
