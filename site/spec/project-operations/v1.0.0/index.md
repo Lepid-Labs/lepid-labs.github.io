@@ -33,6 +33,8 @@ Terms defined in Project Documentation and Project Details keep their meaning he
 - **Task runner**: the tool that defines the project's development commands, such as `just` or `make`. Its commands are
   **recipes**.
 - **Deliverable**: what a release produces: a package, a container image, an installer, or a deployed site.
+- **Container image**: one image name in a registry, such as `ghcr.io/<owner>/<name>`. One image MAY cover several
+  platforms, such as `linux/amd64` and `linux/arm64`, as a multi-platform image; that is still one image.
 
 ## Specification
 
@@ -119,11 +121,11 @@ Terms defined in Project Documentation and Project Details keep their meaning he
 | Type | Deliverable | Release pipeline |
 |------|-------------|------------------|
 | library | One or more packages; never an image or installer | `release.yml` and `publish.yml` |
-| service | Exactly one container image | `publish.yml` |
+| service | Exactly one container image, for as many platforms as it supports | `publish.yml` |
 | web app | One UI, as one container image or one Pages site | `publish.yml` or `pages.yml` |
 | native app | One application's installers, across platforms | `release.yml` |
 
-2. A workflow that publishes two kinds of deliverable, or a service that publishes two images, MUST NOT exist. The
+2. A workflow that publishes two kinds of deliverable, or a service that publishes two image names, MUST NOT exist. The
    second deliverable belongs in its own repository.
 3. **Library.** `release.yml` MUST run on push to the default branch, compute the next version from the Conventional
    Commit titles since the last tag, commit the bump as `chore(release): v<version>`, tag it, and create the GitHub
@@ -136,6 +138,8 @@ Terms defined in Project Documentation and Project Details keep their meaning he
 5. **Service, and web app shipped as a container.** `publish.yml` MUST run on push to the default branch and on `v*`
    tags, push the image to the GitHub Container Registry tagged `latest` (default branch only), `sha-<short sha>`, and
    the semantic version on tags, with `packages: write` and a concurrency group per ref. There is no `release.yml`.
+   An image built for several platforms MUST be published as one multi-platform image under every tag, not as
+   separate image names or per-platform tags.
 6. **Web app shipped as a static site.** `pages.yml` MUST build with the task runner and deploy with
    `actions/deploy-pages` through the `github-pages` environment. Pages MUST be set to deploy from a workflow. Every
    merge to the default branch is a release.
