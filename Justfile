@@ -26,19 +26,19 @@ run: build serve
 # Development: rebuild from the local Weft checkout, then serve
 dev: build-local serve
 
-# Run all checks (the build is the check: a broken page or manifest fails it)
-check: build
+# Run all checks (lint + typecheck + test), as CI does
+check: lint typecheck test
 
-# Lint: verify every HTML page parses and every internal link resolves
+# Lint: build, then verify every internal link in _site/ resolves
 lint: build
     node scripts/check-links.mjs _site
 
-# Nothing to typecheck or test in a static site
+# Nothing to typecheck: no TypeScript sources
 typecheck:
     @echo "No TypeScript sources."
 
-test:
-    @echo "No test suite. 'just check' builds the site."
+# Test: the build is the test (fails if Weft, a manifest, or a spec page cannot be built)
+test: build
 
 # Print the pinned Weft ref
 weft-ref:

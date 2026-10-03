@@ -1,4 +1,4 @@
-name: pages
+name: Pages
 
 on:
   push:
@@ -19,16 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: extractions/setup-just@v4
       - uses: pnpm/action-setup@v4
         with:
           version: latest
       - uses: actions/setup-node@v6
         with:
           node-version-file: .nvmrc
-      - name: Build site (clones Lepid-Labs/weft at weft.ref)
-        run: scripts/build.sh
-      - name: Check links
-        run: node scripts/check-links.mjs _site
+      - name: Build site and check links
+        run: just build lint
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
