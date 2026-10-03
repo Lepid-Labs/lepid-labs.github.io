@@ -13,13 +13,17 @@ How the site reaches `lepid-labs.github.io`, and how to undo a bad release.
 
 ## Deploy
 
-1. Open a pull request. The `ci` workflow builds the site and checks links.
-2. Merge to main. The `pages` workflow builds, checks links, uploads `_site/`, and deploys it. The merge is the publish
-   step.
-3. Watch the `pages` run in the repository's Actions tab until the deploy job finishes.
+1. Open a pull request with a Conventional Commits title; it becomes the squash commit on main. The `main` ruleset
+   requires a code owner's approval ([CODEOWNERS](../../.github/CODEOWNERS)) and three passing checks:
+   - `lint` (CI workflow): `just lint`, which builds the site and checks links, then `just typecheck`.
+   - `test` (CI workflow): `just test`, which builds the site.
+   - `pr-title` (PR guidelines workflow): the title is a Conventional Commit.
+2. Squash-merge to main. The Pages workflow runs `just build lint`, uploads `_site/`, and deploys it. The merge is the
+   publish step.
+3. Watch the Pages run in the repository's Actions tab until the deploy job finishes.
 4. Load the home, FAQ, Docs, and Specs pages and confirm they render.
 
 ## Roll back
 
-1. Revert the offending pull request on GitHub and merge the revert. The `pages` workflow redeploys the previous state.
-2. If main cannot be built, re-run the last good `pages` run from the Actions tab.
+1. Revert the offending pull request on GitHub and merge the revert. The Pages workflow redeploys the previous state.
+2. If main cannot be built, re-run the last good Pages run from the Actions tab.

@@ -7,6 +7,8 @@ same change, record new or changed requirements and decisions there, and update 
 ## Commands
 
 - `just build` (clones and builds Weft at `weft.ref`, assembles `_site/`), `just serve`, `just lint`
+- `just check` runs `lint`, `typecheck`, and `test`, the recipes behind CI's required checks
+  ([0011](docs/decisions/0011-map-required-checks-onto-the-build.md))
 - `just dev` when a built Weft checkout sits at `../weft`
 - `just weft-bump` to move `weft.ref` to Weft's main
 
