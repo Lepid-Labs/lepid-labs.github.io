@@ -1,7 +1,7 @@
 # Decisions
 
-Decision records for the site, one per file, numbered in the order they were opened. An open record is where its
-question is discussed; once accepted it is never edited, and a changed decision supersedes it with a new record.
+Decision records for the site, one per file, numbered in the order they were opened. A record is where its question
+is discussed, and it is reopened and revised in place when new evidence changes the decision.
 Questions not yet worth a record are in [open-questions.md](open-questions.md).
 
 | Decision | Summary | Status |
@@ -15,5 +15,6 @@ Questions not yet worth a record are in [open-questions.md](open-questions.md).
 | [0007 Render the social preview image from HTML](decisions/0007-render-social-image-from-html.md) | `og.png` comes from a themed HTML card via headless Chrome and is committed. | accepted |
 | [0008 Scope of the Documentation page](decisions/0008-documentation-page-scope.md) | Whether Docs shows Weft's internal specification documents or only its user guides. | open |
 | [0009 Share nav markup through a templating step](decisions/0009-share-nav-markup.md) | Whether to replace the duplicated nav and footer with a build-time partial. | open |
-| [0010 Layer the project specifications](decisions/0010-layer-project-specifications.md) | Project Documentation, Project Details, and Project Operations, each building on the last. | accepted |
+| [0010 Publish the project specifications independently](decisions/0010-publish-project-specifications-independently.md) | Project Documentation, Project Details, and Project Operations, related but unversioned against each other. | accepted |
 | [0011 Map the required checks onto the build](decisions/0011-map-required-checks-onto-the-build.md) | `lint` builds and checks links, `test` is the build, `typecheck` is a no-op. | accepted |
+| [0012 Recommend detail-file shapes in Project Documentation 1.2.0](decisions/0012-detail-file-shapes-in-project-documentation.md) | Shapes for each detail file and `CONTRIBUTING.md`, all SHOULD, numbering kept. | accepted |
