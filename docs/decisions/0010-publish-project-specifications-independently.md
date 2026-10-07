@@ -17,13 +17,12 @@ until each published a version on the new base. The three are related, but none 
 Publish three independent specifications:
 
 1. **Project Documentation**: the documents. 1.1.0 removed the badge rules and lets the README description be one or
-   two sentences. Section 6 stays as a pointer to Project Details so that section numbers cited elsewhere do not
-   shift.
+   two sentences. 1.2.0 drops the section that pointed to Project Details.
 2. **Project Details**: the README opening. The details line holds the type badge, then the status badge, then a
    version badge for libraries and native apps with versioned releases, then optionally a license badge, and nothing
    else. The description follows, then any other badges. `archived` is a status, because a separate archived badge
-   would break the details-line rule. A private project's version badge is static and rewritten by the release
-   commit, since badge services cannot read private sources.
+   would break the details-line rule. A private project's version badge is static, since badge services cannot read
+   private sources; Project Operations has the release commit rewrite it.
 3. **Project Operations**: GitHub repository settings, security, code owners, the branch ruleset, CI, PR titles,
    releases by type, and labels.
 
@@ -41,4 +40,5 @@ Documentation section 6 for badges now cites Project Details.
 ## History
 
 - 2026-09-29: Layered the three specs, each naming the exact version of the one before; conformance to a spec implied
-  conformance to the specs beneath it, and a project declared only the highest.
+  conformance to the specs beneath it, and a project declared only the highest. Project Documentation kept section 6
+  as a pointer to Project Details so that its section numbers would not shift.

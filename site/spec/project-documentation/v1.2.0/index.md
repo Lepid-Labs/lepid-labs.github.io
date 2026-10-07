@@ -59,7 +59,7 @@ The convention pairs with [Conventional Commits](https://www.conventionalcommits
 |-----------|------|
 | Why the project exists, and for whom | `docs/PURPOSE.md` |
 | How to install and run it, and what each environment variable means | `README.md` |
-| How to develop it and submit a change | `CONTRIBUTING.md`, or a section of the README (section 10) |
+| How to develop it and submit a change | `CONTRIBUTING.md`, or a section of the README (section 9) |
 | What it must do, including business rules and thresholds | `docs/requirements/` |
 | Decisions, made or still open | `docs/decisions/` |
 | External contracts, interfaces, data models | `docs/design/` |
@@ -97,18 +97,13 @@ The convention pairs with [Conventional Commits](https://www.conventionalcommits
 ### 5. docs/requirements/ (required)
 
 1. Every project MUST have a `docs/requirements/` directory holding at least one area file, with its summary document
-   `docs/requirements.md` (section 8).
+   `docs/requirements.md` (section 7).
 2. Requirements MUST cover what the project must do or guarantee: functional and non-functional requirements,
    business rules and thresholds, constraints, and acceptance criteria.
 3. Each area file MUST be named `<area>.md` and hold one area, such as `authentication.md` or `performance.md`.
-4. Each requirement MUST carry a stable identifier (section 9).
+4. Each requirement MUST carry a stable identifier (section 8).
 
-### 6. Project details
-
-This specification sets no rules for badges or for classifying a project by type. The
-[Project Details](/spec/project-details/) specification covers both.
-
-### 7. Detail directories
+### 6. Detail directories
 
 1. A project SHOULD create each detail directory when its trigger applies, and MUST NOT create one before it has a file
    to hold.
@@ -140,7 +135,7 @@ This specification sets no rules for badges or for classifying a project by type
    does not apply to it, and MAY add sections of its own after the listed ones. A short file MAY cover its sections in
    order as plain paragraphs, without headings.
 8. **Requirement area file**, `docs/requirements/<area>.md`. The H1 is `# <Area> requirements`, followed by one
-   sentence on what the area covers, then one H2 per requirement (section 9.3). Each requirement:
+   sentence on what the area covers, then one H2 per requirement (section 8.3). Each requirement:
    - states one obligation that can be checked, with any threshold given as a number and a unit;
    - lists its acceptance criteria where one sentence cannot carry them;
    - links the decision that set it, where one did.
@@ -152,10 +147,10 @@ This specification sets no rules for badges or for classifying a project by type
    - `## Behaviour`: what the user sees and does, including limits and error states;
    - `## Scope`: what the feature includes;
    - `## Out of scope`: what it deliberately leaves out, linking the decision where one excluded it;
-   - `## Satisfies`: the IDs of the requirements and use cases it satisfies (section 9.4).
+   - `## Satisfies`: the IDs of the requirements and use cases it satisfies (section 8.4).
 
    A feature SHOULD link the design that builds it and any mockups it uses.
-10. **Use case**, `docs/use-cases/<actor-goal>.md`. The H1 is `# UC-nnn <actor goal>` (section 9.3), followed by a
+10. **Use case**, `docs/use-cases/<actor-goal>.md`. The H1 is `# UC-nnn <actor goal>` (section 8.3), followed by a
     sentence naming the primary actor, their goal, and what starts the interaction, then:
     - `## Preconditions`: what is true before it starts;
     - `## Primary flow`: numbered steps of the path where nothing goes wrong, each one action by the actor or the
@@ -203,7 +198,7 @@ This specification sets no rules for badges or for classifying a project by type
 14. **Runbook**, `docs/runbooks/<procedure>.md`. The H1 names the procedure in the imperative, such as
     `# Roll back a release`, followed by a sentence on when to run it and what it achieves, then:
     - `## Prerequisites`: the access, tools, and approvals needed before the first step, naming secrets and roles but
-      never their values (section 12.5);
+      never their values (section 11.5);
     - `## Steps`: numbered, one action each, with the exact command and what the reader sees when it worked;
     - `## Verify`: how to confirm that the whole procedure succeeded;
     - `## Recovery`: what to do when a step fails, or a link to the runbook that undoes it.
@@ -219,7 +214,7 @@ This specification sets no rules for badges or for classifying a project by type
 
     A guide SHOULD be updated in the same change that alters the behaviour it describes.
 
-### 8. Summary documents
+### 7. Summary documents
 
 1. Every detail directory `docs/<area>/` MUST have a summary document `docs/<area>.md` beside it, created in the same
    change as the first detail file.
@@ -233,7 +228,7 @@ This specification sets no rules for badges or for classifying a project by type
 5. A summary MUST list every file in its directory, and every entry MUST link to a file that exists.
 6. A summary MUST be updated in the same change that adds, supersedes, or retires a detail file.
 
-### 9. Stable identifiers
+### 8. Stable identifiers
 
 1. Requirements MUST carry IDs of the form `RQ-nnn`, and use cases `UC-nnn`: three digits, zero-padded, one sequence of
    each per project. A monorepo keeps a single sequence of each at the root.
@@ -243,7 +238,7 @@ This specification sets no rules for badges or for classifying a project by type
 4. Summaries, features, and other cross-references SHOULD cite the ID, so a renamed file or heading does not break the
    reference.
 
-### 10. Optional documents
+### 9. Optional documents
 
 1. `CHANGELOG.md` SHOULD exist when the project publishes versioned releases. Otherwise the repository's change history
    serves.
@@ -256,13 +251,13 @@ This specification sets no rules for badges or for classifying a project by type
    - `## Checks`: the commands that lint, type-check, and test the project, the same ones CI runs, and which of them
      must pass before a change is submitted;
    - `## Making a change`: how to branch, the convention for commit messages or pull request titles, and what a change
-     must include, such as tests and updates to the documents it affects (sections 7 and 8) in the same change;
+     must include, such as tests and updates to the documents it affects (sections 6 and 7) in the same change;
    - `## Reporting issues`: where to report bugs and request features, and the private channel for security issues;
    - `## License`: the terms contributions are accepted under, and any sign-off or agreement they need.
 3. `docs/open-questions.md` MAY exist beside `docs/decisions.md`, listing questions not yet worth a decision record, one
    line each. When a question gets a decision record, its line MUST be removed.
 
-### 11. Monorepos
+### 10. Monorepos
 
 1. The root describes the product. Each package describes only itself. To place a document, ask: if this package were
    deleted, would the document still be true? If yes, it belongs at the root.
@@ -284,7 +279,7 @@ This specification sets no rules for badges or for classifying a project by type
 10. A monorepo SHOULD have one `CONTRIBUTING.md`, at the root, unless a package is independently published and takes
     contributions of its own. Package-specific commands stay in the package README (clause 6).
 
-### 12. Formatting
+### 11. Formatting
 
 1. Every document MUST be Markdown, open with a single H1 that states its purpose, and use only H2 and H3 below it.
 2. Root documents MUST be named in upper case (`README.md`, `LICENSE`, `CHANGELOG.md`). Files under `docs/` MUST be
@@ -294,7 +289,7 @@ This specification sets no rules for badges or for classifying a project by type
 5. Documents MUST NOT contain credentials, internal hostnames or URLs, or personal information. Write every document as
    if the repository were public.
 
-### 13. Prohibited
+### 12. Prohibited
 
 A conforming project MUST NOT contain:
 
