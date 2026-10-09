@@ -1,7 +1,10 @@
-# Project Documentation 1.3.0
+# Project Documentation 2.0.0 (draft)
 
 The Project Documentation specification defines the documents a software project carries, what each one holds, and
 where it lives, so that users, contributors, and agents each know where to look and what they will find there.
+
+> **Draft.** This version is still being written and may change before it is published. The latest published
+> version is at [/spec/project-documentation/](/spec/project-documentation/).
 
 ## Summary
 
@@ -406,7 +409,7 @@ RQ-021 gains a queue-depth alert.
 A project MAY declare conformance with a badge in its README:
 
 ```markdown
-[![Docs: project-documentation 1.3.0](https://img.shields.io/badge/docs-project--documentation_1.3.0-blueviolet)](https://lepid-labs.github.io/spec/project-documentation/v1.3.0/)
+[![Docs: project-documentation 2.0.0](https://img.shields.io/badge/docs-project--documentation_2.0.0-blueviolet)](https://lepid-labs.github.io/spec/project-documentation/v2.0.0/)
 ```
 
 ## FAQ
@@ -464,7 +467,8 @@ serves none of them well.
 
 With [Semantic Versioning](https://semver.org). A patch release fixes wording without changing what conforms. A minor
 release adds optional documents or recommendations, or relaxes a rule. A major release can make a conforming project
-non-conforming. Published versions are never edited; each lives at its own address.
+non-conforming. Published versions are never edited; each lives at its own address. A version still being written is
+marked as a draft and may change until it is published.
 
 ## License
 

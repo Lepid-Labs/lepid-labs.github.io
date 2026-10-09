@@ -1,6 +1,6 @@
-# 0013 Scope decision records in Project Documentation 1.3.0
+# 0013 Scope decision records in Project Documentation 2.0.0
 
-Status: accepted
+Status: proposed
 
 ## Context
 
@@ -24,7 +24,7 @@ weighed and no research.
 
 ## Decision
 
-Publish Project Documentation 1.3.0 with:
+Project Documentation 2.0.0, drafted in place until published, includes:
 
 1. Clause 6.4 opening with what a decision record answers: one design question whose answer shapes the architecture,
    the data model, an external contract, or the project's dependencies. A record SHOULD be opened when the question
@@ -37,12 +37,13 @@ Publish Project Documentation 1.3.0 with:
 4. A sentence in the Summary and an FAQ entry, "What deserves a decision record?", with the test to apply and room for
    a late-adopting project to record a past pivot whose research survives.
 
-The new text is SHOULD and SHOULD NOT inside existing clauses, so no section is renumbered, no project that conforms to
-1.2.0 stops conforming, and the release is minor.
+The new text is SHOULD and SHOULD NOT inside existing clauses, so no section is renumbered and, on its own, it would be
+a minor release. It ships in 2.0.0 with the breaking changes being drafted alongside it. This record is accepted when
+2.0.0 is published.
 
 ## Consequences
 
 The project-docs audit can warn on a decision record that cites no research or records an implementation detail, and
 must stop proposing records reconstructed from history. This site's own records predate the rule; some, such as 0011,
-record tool configuration, and may be reviewed against it. Making research mandatory for every record would be a
-2.0.0.
+record tool configuration, and may be reviewed against it. Making research mandatory for every record is a
+breaking change that 2.0.0 could carry.
