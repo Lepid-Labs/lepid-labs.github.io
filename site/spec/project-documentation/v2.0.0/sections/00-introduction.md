@@ -18,9 +18,9 @@ Every project carries four required documents, each written for a different read
 Two more root documents appear when the project needs them: `CHANGELOG.md` for someone tracking what changed between
 releases, and `CONTRIBUTING.md` for someone about to change the project. Everything else lives in detail directories
 under `docs/`: features, use cases, research, decisions, designs, runbooks, and guides. Each directory is created only
-when it has a file to hold, is indexed by a summary document beside it, and holds files of a recommended shape.
-Decision records are kept for the questions that shape the design, answered with research, not for every choice in
-the code.
+when it has a file to hold, is indexed by a summary document beside it, and holds files of a recommended shape. Each
+kind has a section of its own saying what its files hold, what they leave out, and how to write them. Decision
+records are kept for the questions that shape the design, answered with research, not for every choice in the code.
 
 One rule holds it together: documents record what the code cannot. Anything a reader or a tool can derive from the
 source stays out.

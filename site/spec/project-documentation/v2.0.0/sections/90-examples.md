@@ -70,6 +70,8 @@ accounts. Moving it to the background needs somewhere to queue the work.
 
 ## Options
 
+- Keep generating reports in the request: no work, but large accounts
+  keep timing out.
 - A table in PostgreSQL, polled by a worker: no new service, but retries
   are ours to build.
 - A dedicated broker: retries and scheduling built in, at the cost of

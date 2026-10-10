@@ -1,4 +1,4 @@
-### 8. Stable identifiers
+### 15. Stable identifiers
 
 1. Requirements MUST carry IDs of the form `RQ-nnn`, and use cases `UC-nnn`: three digits, zero-padded, one sequence of
    each per project. A monorepo keeps a single sequence of each at the root.

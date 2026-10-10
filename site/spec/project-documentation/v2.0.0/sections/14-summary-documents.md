@@ -1,4 +1,4 @@
-### 7. Summary documents
+### 14. Summary documents
 
 1. Every detail directory `docs/<area>/` MUST have a summary document `docs/<area>.md` beside it, created in the same
    change as the first detail file.

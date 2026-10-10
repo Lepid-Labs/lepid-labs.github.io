@@ -15,7 +15,7 @@
 |-----------|------|
 | Why the project exists, and for whom | `docs/PURPOSE.md` |
 | How to install and run it, and what each environment variable means | `README.md` |
-| How to develop it and submit a change | `CONTRIBUTING.md`, or a section of the README (section 9) |
+| How to develop it and submit a change | `CONTRIBUTING.md`, or a section of the README (section 16) |
 | What it must do, including business rules and thresholds | `docs/requirements/` |
 | Design decisions, made or still open | `docs/decisions/` |
 | External contracts, interfaces, data models | `docs/design/` |

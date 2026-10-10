@@ -1,4 +1,4 @@
-### 10. Monorepos
+### 17. Monorepos
 
 1. The root describes the product. Each package describes only itself. To place a document, ask: if this package were
    deleted, would the document still be true? If yes, it belongs at the root.

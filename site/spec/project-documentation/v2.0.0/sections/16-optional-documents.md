@@ -1,4 +1,4 @@
-### 9. Optional documents
+### 16. Optional documents
 
 1. `CHANGELOG.md` SHOULD exist when the project publishes versioned releases. Otherwise the repository's change history
    serves.
@@ -11,7 +11,7 @@
    - `## Checks`: the commands that lint, type-check, and test the project, the same ones CI runs, and which of them
      must pass before a change is submitted;
    - `## Making a change`: how to branch, the convention for commit messages or pull request titles, and what a change
-     must include, such as tests and updates to the documents it affects (sections 6 and 7) in the same change;
+     must include, such as tests and updates to the documents it affects (sections 5 to 14) in the same change;
    - `## Reporting issues`: where to report bugs and request features, and the private channel for security issues;
    - `## License`: the terms contributions are accepted under, and any sign-off or agreement they need.
 3. `docs/open-questions.md` MAY exist beside `docs/decisions.md`, listing questions not yet worth a decision record, one

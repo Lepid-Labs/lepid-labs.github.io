@@ -1,4 +1,4 @@
-### 11. Formatting
+### 18. Formatting
 
 1. Every document MUST be Markdown, open with a single H1 that states its purpose, and use only H2 and H3 below it.
 2. Root documents MUST be named in upper case (`README.md`, `LICENSE`, `CHANGELOG.md`). Files under `docs/` MUST be
