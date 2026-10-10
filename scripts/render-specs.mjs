@@ -2,12 +2,15 @@
 //
 //   node scripts/render-specs.mjs <weft-checkout> <site-dir>
 //
-// A spec version is <site>/spec/<name>/v<semver>/index.md. The page is
+// A spec version is <site>/spec/<name>/v<semver>/, holding either index.md or
+// sections/*.md. Sections are joined in name order, a blank line apart, into the
+// index.md that is published, and sections/ is removed, so <site-dir> must be
+// the assembled copy (_site), never the source tree. The page is
 // scripts/spec-page.html filled with the rendered body, a contents list, and a
 // title and description taken from the H1 and the first paragraph after it. The .md
 // stays published next to the page as its source. The Markdown pipeline comes
 // from Weft's ui package, so this repository installs nothing.
-import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -69,12 +72,30 @@ const contents = (headings) => {
 	return list(items.map(({ link, clauses }) => link + (clauses.length ? list(clauses) : "")));
 };
 
+// The index.md of one version directory, joined from its sections if it has them.
+const source = (dir) => {
+	const index = join(dir, "index.md");
+	const parts = join(dir, "sections");
+	const single = existsSync(index);
+	if (!existsSync(parts)) {
+		if (!single) throw new Error(`${dir}: needs index.md or sections/`);
+		return index;
+	}
+	if (single) throw new Error(`${dir}: has both index.md and sections/`);
+	const files = readdirSync(parts).filter((n) => n.endsWith(".md")).sort();
+	if (!files.length) throw new Error(`${parts}: holds no .md files`);
+	writeFileSync(index, files.map((n) => readFileSync(join(parts, n), "utf8")).join("\n"));
+	rmSync(parts, { recursive: true });
+	return index;
+};
+
 const sources = [];
 const walk = (dir) => {
 	for (const name of readdirSync(dir)) {
 		const p = join(dir, name);
-		if (statSync(p).isDirectory()) walk(p);
-		else if (name === "index.md") sources.push(p);
+		if (!statSync(p).isDirectory()) continue;
+		if (/^v\d+\.\d+\.\d+$/.test(name)) sources.push(source(p));
+		else walk(p);
 	}
 };
 walk(join(site, "spec"));

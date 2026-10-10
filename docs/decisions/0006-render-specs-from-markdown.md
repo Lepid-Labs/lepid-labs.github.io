@@ -9,8 +9,9 @@ conventionalcommits.org does. Hand-written HTML would mix the text with markup a
 
 ## Decision
 
-A spec version is `site/spec/<name>/v<semver>/index.md`. `scripts/render-specs.mjs` renders each into an
-`index.html` beside it, using `scripts/spec-page.html` as the shell and the unified, remark, and rehype packages
+A spec version is `site/spec/<name>/v<semver>/`, written as one `index.md` or, when it is long, as section files in
+`sections/` that the build joins in name order into the published `index.md`. `scripts/render-specs.mjs` renders each
+into an `index.html` beside it, using `scripts/spec-page.html` as the shell and the unified, remark, and rehype packages
 already installed in Weft's `packages/ui`. The page title and description come from the H1 and the first paragraph
 after it; numbered H3 clauses join the H2s in the contents list. `site/spec/index.html` is the landing page, and each
 `site/spec/<name>/index.html` redirects to that spec's latest version.

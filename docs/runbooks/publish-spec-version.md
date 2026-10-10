@@ -4,9 +4,9 @@ Add a new version of a specification. Published versions are frozen ([RQ-013](..
 change, even a wording fix, goes through these steps. A larger version can be merged as a draft first and edited over
 several pull requests; see [Drafts](#drafts).
 
-1. Copy `site/spec/<name>/v<old>/index.md` to `site/spec/<name>/v<new>/index.md`, choosing the version by the rules in
-   the spec's own FAQ. Never edit the old file.
-2. Edit the new file, including the version in its H1 and in its conformance badge.
+1. Copy the directory `site/spec/<name>/v<old>/` to `site/spec/<name>/v<new>/`, choosing the version by the rules in
+   the spec's own FAQ. Never edit the old files.
+2. Edit the new files, including the version in the H1 and in the conformance badge.
 3. In `site/spec/index.html`, point the spec's card at the new version.
 4. In `site/spec/<name>/index.html`, change both the refresh URL and the canonical URL to the new version.
 5. Run `just lint`, then `just serve` and check the new page and the redirect.
@@ -19,6 +19,14 @@ For a new specification, create `site/spec/<name>/v1.0.0/index.md`, add a card t
 existing `site/spec/<name>/index.html` redirect. The file must open with an H1 followed by a paragraph; they become the
 page's title and description. A spec links the others by their unversioned address, such as `/spec/project-details/`,
 never by a version.
+
+## Section files
+
+A long spec version can be written as `sections/*.md` in place of `index.md`; a version with both, or neither, fails
+the build. The build joins the files in name order, one blank line apart, into the published `index.md`, and does not
+publish them. Name each file for the section it holds: `00-introduction.md` for the H1, the opening paragraph, and
+everything up to the first numbered section; `NN-<title>.md` for section `NN`, such as `07-features.md`; and `9N-` for
+the examples, FAQ, and other closing sections. Renumbering a section renames its file.
 
 ## Drafts
 
