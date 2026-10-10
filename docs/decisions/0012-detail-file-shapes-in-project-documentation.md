@@ -29,6 +29,6 @@ conforming, and the release is minor. Renumbering changes no rule.
 ## Consequences
 
 No other spec needs a new version, since none depends on a version of this one
-([0010](0010-publish-project-specifications-independently.md)). Tooling that cites the spec by section number, such as
-the project-docs audit, needs its citations shifted when it moves to 1.2.0. An audit can report a departure from a
-shape as a warning, not a failure. Making shapes binding would be a 2.0.0.
+([0010](0010-publish-project-specifications-independently.md)). Tooling that cites the spec by section number needs
+its citations shifted when it moves to 1.2.0. An audit can report a departure from a shape as a warning, not a
+failure. Making shapes binding would be a 2.0.0.
