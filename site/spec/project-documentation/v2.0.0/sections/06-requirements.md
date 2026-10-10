@@ -1,8 +1,9 @@
-### 6. docs/requirements/ (required)
+### 6. docs/requirements/
 
-1. Every project MUST have a `docs/requirements/` directory holding at least one area file, with its summary document
-   `docs/requirements.md` (section 14). Requirements are read by everyone who builds, tests, or accepts the project,
-   including readers who are not engineers.
+1. A project SHOULD have a `docs/requirements/` directory holding at least one area file, with its summary document
+   `docs/requirements.md` (section 14). A project with no business rule, threshold, or constraint to record, such as a
+   small single-purpose tool or a prototype, MAY go without one. Requirements are read by everyone who builds, tests,
+   or accepts the project, including readers who are not engineers.
 2. Requirements MUST cover what the project must do or guarantee: functional and non-functional requirements,
    business rules and thresholds, constraints, and acceptance criteria. A measure of success, such as a response-time
    target or an adoption goal, is a requirement with a threshold.

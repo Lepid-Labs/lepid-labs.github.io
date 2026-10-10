@@ -28,8 +28,14 @@ discussion of the time survives to support it.
 
 ### Does every project need every detail directory?
 
-No. Every project has requirements; most need one or two more directories. A directory appears when its trigger
-applies and not before, which is why an empty `docs/` subdirectory is prohibited.
+No. Most projects have requirements, and most need one or two more directories. A directory appears when its
+trigger applies and not before, which is why an empty `docs/` subdirectory is prohibited.
+
+### Why are requirements recommended rather than required?
+
+A requirement is an obligation that can be checked: an outcome with a threshold, not a description of the code. A
+small tool or a prototype may have none, and an area file written only to satisfy a rule would hold restated README
+text or goals with no measure, both of which section 6 leaves out.
 
 ### Why are detail-file shapes recommendations rather than rules?
 
@@ -43,11 +49,11 @@ It is always out of date. A file tree or a dependency list in a document is corr
 reader who finds one stale entry stops trusting the rest. Tooling answers those questions from the source, correctly,
 every time.
 
-### Why four required documents instead of one README?
+### Why three required documents instead of one README?
 
 They have different readers who want different things. A newcomer wants to run the project, an evaluator wants to know
-whether it is for them, a builder wants to know what it must do, and a lawyer wants the terms. One file serving all four
-serves none of them well.
+whether it is for them, and a lawyer wants the terms. One file serving all three serves none of them well, and the same
+holds for requirements, which a builder reads to learn what the project must do.
 
 ### How is this specification versioned?
 

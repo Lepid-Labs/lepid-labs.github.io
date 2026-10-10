@@ -6,7 +6,7 @@
 
 | Directory | Holds | Section |
 |-----------|-------|---------|
-| `docs/requirements/` | Functional and non-functional requirements, business rules, constraints, acceptance criteria | 6 (required) |
+| `docs/requirements/` | Functional and non-functional requirements, business rules, constraints, acceptance criteria | 6 |
 | `docs/features/` | One user-facing feature per file: behaviour, scope, acceptance criteria | 7 |
 | `docs/use-cases/` | Actor–goal interactions, step by step | 8 |
 | `docs/research/` | Spikes, evaluations, benchmarks, and prior-art surveys, with findings and recommendations | 9 |

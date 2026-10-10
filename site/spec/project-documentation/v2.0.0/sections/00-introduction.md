@@ -8,16 +8,16 @@ where it lives, so that users, contributors, and agents each know where to look 
 
 ## Summary
 
-Every project carries four required documents, each written for a different reader:
+Every project carries three required documents, each written for a different reader:
 
 - `README.md` is for someone who has never seen the project.
 - `docs/PURPOSE.md` is for someone deciding whether the project is useful to them.
-- `docs/requirements/` is for someone building the project or checking what it must do.
 - `LICENSE` is for someone concerned with whether and how they may use it.
 
-Two more root documents appear when the project needs them: `CHANGELOG.md` for someone tracking what changed between
-releases, and `CONTRIBUTING.md` for someone about to change the project. Everything else lives in detail directories
-under `docs/`: features, use cases, research, decisions, designs, runbooks, and guides. Each directory is created only
+Most projects also carry `docs/requirements/`, for someone building the project or checking what it must do. Two more
+root documents appear when the project needs them: `CHANGELOG.md` for someone tracking what changed between releases,
+and `CONTRIBUTING.md` for someone about to change the project. Everything else lives in detail directories under
+`docs/`: features, use cases, research, decisions, designs, runbooks, and guides. Each directory is created only
 when it has a file to hold, is indexed by a summary document beside it, and holds files of a recommended shape. Each
 kind has a section of its own saying what its files hold, what they leave out, and how to write them. Decision
 records are kept for the questions that shape the design, answered with research, not for every choice in the code.
