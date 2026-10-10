@@ -56,4 +56,6 @@ Each hand-written page stays under 200 lines.
 Status: agreed
 
 A published spec version is never edited. Any change, even a wording fix, is a new version, and old versions stay up so
-links keep their meaning. The steps are in the [publishing runbook](../runbooks/publish-spec-version.md).
+links keep their meaning. A version MAY first be merged as a draft and edited in place until it is published. A draft's
+H1 ends in `(draft)`, a notice after its opening paragraph says it may change, and neither the spec index nor the
+spec's unversioned address points at it. The steps are in the [publishing runbook](../runbooks/publish-spec-version.md).
